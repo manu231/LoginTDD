@@ -1,0 +1,46 @@
+package com.bny.testcases;
+
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import com.bny.base.TestBase;
+import com.bny.pages.LoginPage;
+
+public class LoginPageTest extends TestBase{
+	
+LoginPage loginPage;
+	
+
+  public LoginPageTest() { 
+	  super();
+	  }
+ 
+	@BeforeTest
+	public void setUp() {
+		System.out.println("Before Initialization ----");
+		initialization();
+		loginPage =new LoginPage();
+	}
+	@Test
+	public void clickedOnSignInImage() {
+		loginPage.clickOnSignInImg();
+		System.out.println("User Clicked on Sign in Image");
+	}
+	@Test
+	public void enteredValidCredentials() {
+		loginPage.enterValidCredentials();
+		System.out.println("User Entered valid crcedentials");
+	}
+	@Test
+	public void clickedOnSubmitBtn() {
+		loginPage.clickOnSubmitBtn();
+		System.out.println("User Clicked on submit button");
+	}
+	
+	@AfterTest
+	public void teardown() {
+		driver.close();
+	}
+}
+
